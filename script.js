@@ -1,41 +1,22 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
+document.addEventListener("DOMContentLoaded", function () {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var menu = document.querySelector('.menu');
+    var closeBtn = document.createElement('div'); // Créer le bouton Fermer
   
     menuToggle.addEventListener('click', function () {
       menu.classList.toggle('active');
     });
   
-    let isTouching = false;
-    let touchStartX = 0;
-    let touchCurrentX = 0;
-  
-    document.addEventListener('touchstart', function (event) {
-      isTouching = true;
-      touchStartX = event.touches[0].clientX;
+    menu.addEventListener('click', function () {
+      menu.classList.remove('active');
     });
   
-    document.addEventListener('touchmove', function (event) {
-      if (!isTouching) return;
-      touchCurrentX = event.touches[0].clientX;
+    closeBtn.innerHTML = '&#10006;'; // Utiliser le caractère "X" pour le bouton Fermer
+    closeBtn.classList.add('close-btn');
+    closeBtn.addEventListener('click', function () {
+      menu.classList.remove('active');
     });
   
-    document.addEventListener('touchend', function () {
-      if (!isTouching) return;
-  
-      isTouching = false;
-  
-      // Calculer la distance parcourue lors du balayage
-      const swipeDistance = touchStartX - touchCurrentX;
-  
-      // Si la distance est suffisamment importante, activer/désactiver la barre de menu
-      if (Math.abs(swipeDistance) > 50) {
-        menu.classList.toggle('active');
-      }
-  
-      // Réinitialiser les valeurs de la touche
-      touchStartX = 0;
-      touchCurrentX = 0;
-    });
+    menu.appendChild(closeBtn); // Ajouter le bouton Fermer au menu
   });
   
