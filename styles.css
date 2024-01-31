@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url('SM.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #FFFFFF;
+}
+
+
+header {
+  background-color: none; 
+  padding: 1px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none; 
+  padding: 1px;
+  border-radius: 10px; 
+}
+
+.logo img {
+  max-height: 100px;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  margin-right: 60px;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 40px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #000000; 
+  font-weight: bold;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  padding: 5px;
+}
+
+
+
+
+
+
+
+
+/* Styles pour les écrans de petite taille (téléphone) */
+
+body {
+  overflow-x: hidden; /* Empêcher le défilement horizontal pour éviter des problèmes d'interaction tactile */
+}
+
+.menu {
+  display: none; /* Masquer la barre de menu par défaut */
+  position: fixed;
+  top: 0;
+  left: -250px; /* Position hors écran par défaut */
+  width: 250px;
+  height: 100%;
+  background-color: #3D4E66;
+  transition: left 0.3s; /* Ajouter une transition pour une animation fluide */
+}
+
+.menu.active {
+  left: 0; /* Afficher la barre de menu en position visible */
+}
+
+.menu ul {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 18px;
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    position: relative; 
+  }
+
+  .menu-toggle {
+    display: block; 
+  }
+
+  .menu {
+    width: 100%; /* La barre de menu prend toute la largeur de l'écran sur les écrans de petite taille */
+    height: 100vh; /* La hauteur prend 100% de la hauteur de l'écran */
+    top: 0;
+    left: -100%; /* La barre de menu est initialement cachée */
+  }
+
+  .menu.active {
+    left: 0; /* Afficher la barre de menu en position visible */
+  }
+}
+
