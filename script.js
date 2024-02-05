@@ -19,4 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     menu.appendChild(closeBtn); // Ajouter le bouton Fermer au menu
   });
+
+
+
   
